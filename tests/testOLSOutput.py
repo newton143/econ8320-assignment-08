@@ -33,7 +33,9 @@ class TestCase(unittest.TestCase):
       y = data['incwage']
       reg = RegressionModel(x, y, create_intercept=True)
       reg.ols_regression()
-      reg.summary()
+      #reg.summary()
+
+      print(reg.summary().to_string(index=False))
 
       output = system.stdout.getvalue()
       system.stdout = stdout
@@ -44,5 +46,6 @@ class TestCase(unittest.TestCase):
       educ = bool(re.findall(r'educ.*\d+.*\d+.*\d+.*\d+.*', output))
       white = bool(re.findall(r'white.*\d+.*\d+.*\d+.*\d+.*', output))
       intercept = bool(re.findall(r'intercept.*\d+.*\d+.*\d+.*\d+.*', output))
-
+      
+      print(labels, sex, age, educ, white, intercept)
       self.assertTrue(labels&sex&age&educ&white&intercept, "Your summary table is not properly constructed.")

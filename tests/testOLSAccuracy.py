@@ -63,5 +63,24 @@ class TestCase(unittest.TestCase):
       whiteEq2 = (round(white['coefficient'], 0)==round(reg.results['white']['coefficient'], 0)) & (round(white['standard_error'], 0)==round(reg.results['white']['standard_error'], 0)) & (round(white['t_stat'], 0)==round(reg.results['white']['t_stat'], 0)) & (round(white['p_value']*2, 0)==round(reg.results['white']['p_value'], 0))
       interceptEq2 = (round(intercept['coefficient'], 0)==round(reg.results['intercept']['coefficient'], 0)) & (round(intercept['standard_error'], 0)==round(reg.results['intercept']['standard_error'], 0)) & (round(intercept['t_stat'], 0)==round(reg.results['intercept']['t_stat'], 0)) & (round(intercept['p_value']*2, 0)==round(reg.results['intercept']['p_value'], 0))
       
+      
+      print(round(sex['coefficient'], 0))
+      print(round(reg.results['sex']['coefficient'], 0))
+      print(round(sex['coefficient'], 0)==round(reg.results['sex']['coefficient'], 0))
+
+      print(round(sex['standard_error'], 0))
+      print(round(reg.results['sex']['standard_error'], 0)) 
+      print(round(sex['standard_error'], 0)==round(reg.results['sex']['standard_error'], 0)) 
+            
+      print(round(sex['t_stat'], 0))
+      print(round(reg.results['sex']['t_stat'], 0)) 
+      print(round(sex['t_stat'], 0)==round(reg.results['sex']['t_stat'], 0)) 
+            
+      print(round(sex['p_value'], 0))
+      print(round(reg.results['sex']['p_value'], 2))
+      print(round(sex['p_value'], 0)==round(reg.results['sex']['p_value'], 0))
+      
+      print(sexEq, ageEq, educEq, whiteEq, interceptEq)
+      print(sexEq2, ageEq2, educEq2, whiteEq2, interceptEq2)
       self.assertTrue((sexEq & ageEq & educEq & whiteEq & interceptEq)|(sexEq2 & ageEq2 & educEq2 & whiteEq2 & interceptEq2), "Your regression coefficients are not correct.")
     
